@@ -1,0 +1,22 @@
+.press-start {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+        text-align: center;
+
+  }
+  
+
+#startScreen {
+    margin-top: 20%;
+}
+
+.start-button {
+    font-family: "Press Start 2P", system-ui;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
