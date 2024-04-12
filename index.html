@@ -10,12 +10,16 @@
     <title>Document</title>
 </head>
 <body>
-
-    <div id="startScreen" class="press-start">
-        <h1>Start Your Farm</h1>
-        <button class="start-button" onclick="startGame()">Start Game</button>
-    </div>
-    
+    <main>
+        <!-- start screen -->
+        <div id="start-screen" class="press-start">
+            <h1>Start Your Farm</h1>
+            <button class="start-button" onclick="startGame()">Start Game</button>
+        </div>
+        <!-- end start screen -->
+        <div id="farmLand" class="grid-container"></div>
+    </main>
     <script src="index.js"></script>
+    <script src="gameLogic.js"></script>
 </body>
 </html>
