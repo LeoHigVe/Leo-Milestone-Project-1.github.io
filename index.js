@@ -7,13 +7,15 @@ function startGame() {
             startScreen.style.opacity = opacity;
             setTimeout(hideStartScreen, 100); 
         } else {
-            element.style.display = "none"; // Hide the element once it has faded out
+            startScreen.remove(); 
         }
     }
-    // Add game initialization logic here
-    newInventory()
-    hideStartScreen()
+    // game  logic here
     alert("Game is starting!");
+    hideStartScreen();
+    Inventory();
+    createFarmLand();
+    setupShop();
 }
 // Creates new Image
 function newImage(url){
@@ -37,18 +39,11 @@ function newItem(url){
 }
 
 
-function newInventory(){
-    let inventory = document.createElement('div')
-        inventory.style.width = '100%'
-    inventory.style.height = '100px'
-    inventory.style.display = 'flex'
-    inventory.style.flexDirection = 'row'
-    inventory.style.alignItems = 'center'
-    inventory.style.justifyContent = 'space-evenly'
-    inventory.style.border = '2px solid black'
-    inventory.style.backgroundColor = 'brown'
-    document.body.append(inventory)
-    return inventory
+function Inventory() {
+    let inventory = document.createElement('div');
+    inventory.id = 'inventory'; // Set the ID of the div to "inventory"
+    document.body.append(inventory);
+    return inventory;
 }
 function createFarmLand(){
 
