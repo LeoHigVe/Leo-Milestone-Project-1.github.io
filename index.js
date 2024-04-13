@@ -6,6 +6,54 @@ let inventoryTools = [
     'assets/tool assets/scythe.png'
 ];
 
+function createSeedCoinTracker() {
+    // Create a div for the seed and coin tracker
+    let seedCoinTracker = document.createElement('div');
+
+    // Create an img element for the seed GIF
+    let seedGif = document.createElement('img');
+    seedGif.src = 'assets/seeds/Seed.png';
+    seedGif.alt = 'Seed img';
+
+    // Create a span element for the seed counter
+    let seedCounter = document.createElement('span');
+    seedCounter.textContent = '4'; // Initial seed count
+
+    // Create an img element for the coin GIF
+    let coinGif = document.createElement('img');
+    coinGif.src = 'assets/Resources/coin1_16x16.gif';
+    coinGif.alt = 'Coin GIF';
+
+    // Create a span element for the coin counter
+    let coinCounter = document.createElement('span');
+    coinCounter.textContent = '5'; // Initial coin count
+
+    // Append the seed GIF and counter to the seedCoinTracker div
+    seedCoinTracker.appendChild(seedGif);
+    seedCoinTracker.appendChild(seedCounter);
+
+    // Append the coin GIF and counter to the seedCoinTracker div
+    seedCoinTracker.appendChild(coinGif);
+    seedCoinTracker.appendChild(coinCounter);
+
+    // Find the element with the class 'resource-tab' and append the seedCoinTracker div
+    let resourceTab = document.querySelector('.resource-tab');
+    if (resourceTab) {
+        resourceTab.appendChild(seedCoinTracker);
+    }
+}
+
+// Function to update the seed counter
+function updateSeedCounter(value) {
+    seedCounter.textContent = value;
+}
+
+// Function to update the coin counter
+function updateCoinCounter(value) {
+    coinCounter.textContent = value;
+}
+
+
 
 // Creates new Image
 function newImage(url){
@@ -67,9 +115,9 @@ function startGame() {
         }
     }
     // game  logic here
-    alert("Game is starting!");
+    alert("Creating Your Farm...");
     hideStartScreen();
     Inventory(inventoryTools);
     createFarmLand();
-    setupShop();
+    createSeedCoinTracker();
 }
