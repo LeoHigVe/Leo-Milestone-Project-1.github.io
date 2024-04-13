@@ -1,22 +1,12 @@
-function startGame() {
-    const startScreen = document.getElementById('start-screen')
-    let opacity = 1
-    function hideStartScreen(){
-        if (opacity > 0) {
-            opacity -= 0.1; 
-            startScreen.style.opacity = opacity;
-            setTimeout(hideStartScreen, 100); 
-        } else {
-            startScreen.remove(); 
-        }
-    }
-    // game  logic here
-    alert("Game is starting!");
-    hideStartScreen();
-    Inventory();
-    createFarmLand();
-    setupShop();
-}
+
+let inventoryTools = [
+    'assets/tool assets/WateringCan.png',
+    'assets/tool assets/seeds-icon.png',
+    'assets/tool assets/shovel-icon.png',
+    'assets/tool assets/scythe.png'
+];
+
+
 // Creates new Image
 function newImage(url){
     let image = document.createElement('img')
@@ -26,25 +16,25 @@ function newImage(url){
     return image
 }
 
-// Creates new Item 
-function newItem(url){
-    let item = newImage(url)
-    item.addEventListener('click', () => {
-        item.remove()
-        let inventoryItem = document.createElement('img')
-        inventoryItem.src = url;
-        inventory.append(inventoryItem)
-    })
-    return item
+function createInventoryItem(inventoryTools) {
+    let item = document.createElement('img');
+    item.src = inventoryTools;
+    return item;
 }
 
-
-function Inventory() {
+function Inventory(inventoryTools) {
     let inventory = document.createElement('div');
-    inventory.id = 'inventory'; // Set the ID of the div to "inventory"
+    inventory.id = 'inventory';
     document.body.append(inventory);
+
+    inventoryTools.forEach(inventoryTools => {
+        let inventoryItem = createInventoryItem(inventoryTools);
+        inventory.append(inventoryItem);
+    });
+
     return inventory;
 }
+
 function createFarmLand(){
 
     // Get the container element
@@ -62,4 +52,24 @@ function createFarmLand(){
             farmLand.appendChild(box);
         }
     }
+}
+// Starts Game
+function startGame() {
+    const startScreen = document.getElementById('start-screen')
+    let opacity = 1
+    function hideStartScreen(){
+        if (opacity > 0) {
+            opacity -= 0.1; 
+            startScreen.style.opacity = opacity;
+            setTimeout(hideStartScreen, 100); 
+        } else {
+            startScreen.remove(); 
+        }
+    }
+    // game  logic here
+    alert("Game is starting!");
+    hideStartScreen();
+    Inventory(inventoryTools);
+    createFarmLand();
+    setupShop();
 }

@@ -3,13 +3,12 @@
 ## Description
 
 This is a little farm game where you can relax and just drag and drop seeds and grow/sell flowers.
-My inspiration for this game is Stardew Valley, which is a game that was developed by one person and was 
+My inspiration for this game is 'Stardew Valley', which is a game that was developed by one person and was
 able to grow such a cult following, and its one of my favorite games.
 
 ## Deployment
 
-The web game is deployed at __________________ (YOUR DEPLOYED GITHUB.IO URL).
-
+The web game is deployed at (<https://leo-mp3.github.io/Leo-Milestone-Project-1.github.io/>).
 
 ## Game Logic
 
