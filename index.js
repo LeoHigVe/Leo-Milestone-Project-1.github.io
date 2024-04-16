@@ -1,3 +1,5 @@
+// Seed item Logic
+
 
 let inventoryTools = [
     'assets/tool assets/WateringCan.png',
@@ -64,9 +66,21 @@ function newImage(url){
     return image
 }
 
-function createInventoryItem(inventoryTools) {
+function createInventoryItem(tool) {
     let item = document.createElement('img');
-    item.src = inventoryTools;
+    item.src = tool;
+    item.style.border = '0'; // Set initial border style
+
+    item.addEventListener('click', function() {
+        // Remove border from all items
+        document.querySelectorAll('img').forEach(item => {
+            item.style.border = '0';
+        });
+
+        // Apply border to the clicked item
+        item.style.border = '8px dotted #9C95DC';
+    });
+
     return item;
 }
 
@@ -121,3 +135,4 @@ function startGame() {
     createFarmLand();
     createSeedCoinTracker();
 }
+'assets/seeds/Seed.png'
