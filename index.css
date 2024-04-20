@@ -32,9 +32,8 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 35em;
-    margin: 0 auto;
-    padding-top: 10em;
+    width: 50%;
+    padding: 10em;
 }
 
 .grid-box {
@@ -53,6 +52,8 @@ body{
     justify-content: space-evenly;
     border: 2px solid black;
     background-color: #228CDB;
+    position: sticky;
+    bottom: 0;
 }
 #inventory img{
     height: 80px;
@@ -67,10 +68,44 @@ body{
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    position: sticky;
+    top: 0;
 
 }
 .grid-box img{
     width: 100px;
     margin: auto;
     display: block;
+}
+.game-and-instructions{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 800px;
+    width: 100vw;
+
+}
+#instructions{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: "Press Start 2P", system-ui;
+    width: 25%;
+    line-height: 1em;
+    padding: 10em;
+
+}
+#instructions li{
+    padding: 20px;
+}
+#end-game button{
+    font-family: "Press Start 2P", system-ui;
+    margin: 10em;
+    padding: 2em;
+    font-size: 1em;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    /* width: 25%; */
 }

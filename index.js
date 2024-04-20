@@ -192,6 +192,58 @@ function createFarmLand() {
     }
 }
 
+function displayInstructions() {
+    
+    let instructionsDiv = document.getElementById('instructions');
+
+    let instructionsList = document.createElement('ul');
+
+    let instructionItems = [
+        "Click on items in the inventory to select/equip them.",
+        "Watering can will grow Seeds into Saplings and Saplings into flowers.",
+        "The Seed Bag will hold your seeds that are visible on the top right.",
+        "The Scythe will harvest the flowers and give you seeds and coins.",
+        "To use items click on them and click on a tile on the Farmland.",
+        "Spend 20 Gold on button to end game"
+    ];
+
+    instructionItems.forEach(function(itemText) {
+        let listItem = document.createElement('li');
+        listItem.textContent = itemText;
+        instructionsList.appendChild(listItem);
+    });
+
+    instructionsDiv.appendChild(instructionsList);
+}
+function addEndGame() {
+    let button = document.createElement('button');
+    button.textContent = 'End Game';
+    button.addEventListener('click', function() {
+        let coinCounter = document.getElementById('coin-counter');
+        if (coinCounter && parseInt(coinCounter.textContent) >= 20) {
+            Toastify({
+                text: "Congratulations on finishing the game!",
+                duration: 3000, 
+                close: true
+            }).showToast();
+            setTimeout(function() {
+                location.reload();
+            }, 3000); 
+        } else {
+            Toastify({
+                text: "You need at least 20 gold to end the game.",
+                duration: 3000,
+                close: true,
+                backgroundColor: "red"
+            }).showToast();
+        }
+    });
+
+    let endGameDiv = document.getElementById('end-game');
+    endGameDiv.append(button);
+}
+
+
 function startGame() {
     const startScreen = document.getElementById('start-screen');
     let opacity = 1;
@@ -205,11 +257,14 @@ function startGame() {
             startScreen.remove();
         }
     }
+    
 
     alert("Creating Your Farm...");
     hideStartScreen();
     Inventory();
     createFarmLand();
     createSeedCoinTracker();
+    displayInstructions();
+    addEndGame()
 }
 

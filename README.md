@@ -12,26 +12,13 @@ The web game is deployed at (<https://leo-mp3.github.io/Leo-Milestone-Project-1.
 
 ## Game Logic
 
-```
-XXX Remember to delete the instructions for this repo section below before finalizing and submitting your project because this project is part of your portfolio you should be showcasing. XXX
-
 Instructions: 
-The writing should describe in plain, simple language the logic of the game.
-Describe the logic involved in player decisions.
-  - What are the choices available to the player?
-  - What happens when the player makes a choice?
-Describe the logic that evaluates the player's victory/loss/progress status:
 
-___________________________________________________________________________________
-
-___________________________________________________________________________________
-
-___________________________________________________________________________________
-
-___________________________________________________________________________________
-
-___________________________________________________________________________________
-```
+Click on items in the inventory to select/equip them.
+Watering can will grow Seeds into Saplings and Saplings into flowers.
+The Seed Bag will hold your seeds that are visible on the top right.
+The Scythe will harvest the flowers and give you seeds and coins.
+To use items click on them and click on a tile on the Farmland
 
 ### Post-MVP Plans
 
