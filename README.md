@@ -19,11 +19,11 @@ Watering can will grow Seeds into Saplings and Saplings into flowers.
 The Seed Bag will hold your seeds that are visible on the top right.
 The Scythe will harvest the flowers and give you seeds and coins.
 To use items click on them and click on a tile on the Farmland
+Click on the End Game Button with 20 or more coins 
 
 ### Post-MVP Plans
 
-XXX Replace the text below as you list with your own text then delete this line. XXX
-
-- One great idea I hope to be able to add in before the project deadline.
-- Another that will be a stretch.
-- Something else I don't technically know how to do... *yet*. :)
+- Want to improve UXUI by making more pleasant inventory and end button and getting rid of some of the awkwardness.
+- fix the bug where you can change the flowers with the watering can.
+- I want to add sound effects and background music
+- and maybe add a collection tracker to see if you have collected all the flower variants
