@@ -13,7 +13,7 @@ function createSeedCoinTracker() {
     seedCounter.textContent = '4';
 
     coinCounter.id = 'coin-counter';
-    coinCounter.textContent = '5';
+    coinCounter.textContent = '0';
 
     seedCoinTracker.appendChild(document.createElement('img')).src = 'assets/seeds/Seed.png';
     seedCoinTracker.appendChild(seedCounter);
@@ -41,6 +41,23 @@ function decreaseSeedCounter() {
         let currentValue = parseInt(seedCounter.textContent);
         let newValue = currentValue - 1;
         updateSeedCounter(newValue);
+    }
+}
+function increaseCounters(seedIncrement, coinIncrement) {
+    
+    let seedCounter = document.getElementById('seed-counter');
+    let coinCounter = document.getElementById('coin-counter');
+
+    
+    if (seedCounter) {
+        let currentValue = parseInt(seedCounter.textContent);
+        seedCounter.textContent = currentValue + seedIncrement;
+    }
+
+    
+    if (coinCounter) {
+        let currentValue = parseInt(coinCounter.textContent);
+        coinCounter.textContent = currentValue + coinIncrement;
     }
 }
 
@@ -102,21 +119,23 @@ function plantSeed(box) {
             console.log('Item-0 does not have border, cannot plant seed');
             return;
         }
+        let randomIndex = Math.floor(Math.random() * flowers.length);
+        let flowerUrl = flowers[randomIndex];
+        newSeed.src = flowerUrl;
         
-        if (newSeed.src === isFlower(newSeed.src)) {
-            let randomIndex = Math.floor(Math.random() * flowers.length);
-            let flowerUrl = flowers[randomIndex];
-            newSeed.src = flowerUrl;
+        
+        newSeed.addEventListener('click', harvestFlower);
+    }
+  
+    function harvestFlower(){
+        let scythe = document.getElementById('tool-2')
+        if (!hasBorder(scythe)){
+            console.log('scythe not selected')
+            return;
         }
-        
+        newSeed.remove()
+        increaseCounters(2,1)
     }
-    
-    // Function to check if the image source is a flower
-    function isFlower(src) {
-        // Assuming the flower URLs all contain '/Flowers/' in the path
-        return src.includes('/Flowers/');
-    }
-    
         
 }
 
