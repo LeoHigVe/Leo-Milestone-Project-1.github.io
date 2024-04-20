@@ -1,13 +1,21 @@
-// Seed item Logic
 
+function hasBorder(element) {
+    let computedStyle = window.getComputedStyle(element);
+    let borderStyle = computedStyle.getPropertyValue('border');
+    return borderStyle !== '0px none rgb(0, 0, 0)';
+}
 
-let inventoryTools = [
-    'assets/tool assets/WateringCan.png',
-    'assets/tool assets/seeds-icon.png',
-    'assets/tool assets/shovel-icon.png',
-    'assets/tool assets/scythe.png'
-];
+function plantSeed(box) {
+    let seedBag = document.getElementById('tool-1');
 
+    if (hasBorder(seedBag)) {
+        let newSeed = document.createElement('img');
+        newSeed.src = 'assets/seeds/Seed.png';
+        box.appendChild(newSeed);
+    } else {
+        console.log('Item-1 does not have a border, cannot plant seed');
+    }
+}
 function createSeedCoinTracker() {
     // Create a div for the seed and coin tracker
     let seedCoinTracker = document.createElement('div');
@@ -57,21 +65,15 @@ function updateCoinCounter(value) {
 
 
 
-// Creates new Image
-function newImage(url){
-    let image = document.createElement('img')
-    image.src = url
-    image.style.position = 'absolute'
-    document.body.append(image)
-    return image
-}
 
-function createInventoryItem(tool) {
+
+function createInventoryItem(tool, index) {
     let item = document.createElement('img');
     item.src = tool;
     item.style.border = '0'; // Set initial border style
+    item.id = 'tool-' + index; // Assign unique ID to each item
 
-    item.addEventListener('click', function() {
+    item.addEventListener('click', function selectItem() {
         // Remove border from all items
         document.querySelectorAll('img').forEach(item => {
             item.style.border = '0';
@@ -84,13 +86,20 @@ function createInventoryItem(tool) {
     return item;
 }
 
-function Inventory(inventoryTools) {
+function Inventory() {
     let inventory = document.createElement('div');
     inventory.id = 'inventory';
     document.body.append(inventory);
 
-    inventoryTools.forEach(inventoryTools => {
-        let inventoryItem = createInventoryItem(inventoryTools);
+    let tools = [
+        'assets/tool assets/WateringCan.png',
+        'assets/tool assets/seeds-icon.png',
+        'assets/tool assets/shovel-icon.png',
+        'assets/tool assets/scythe.png'
+    ];
+
+    tools.forEach((tool, index) => {
+        let inventoryItem = createInventoryItem(tool, index);
         inventory.append(inventoryItem);
     });
 
@@ -112,6 +121,9 @@ function createFarmLand(){
             box.className = "grid-box";
             box.style.backgroundColor = colors[(i + j) % colors.length];
             farmLand.appendChild(box);
+            box.addEventListener('click', function(){
+                plantSeed(box)
+            })
         }
     }
 }
@@ -128,11 +140,13 @@ function startGame() {
             startScreen.remove(); 
         }
     }
-    // game  logic here
+    // game  logic here\
+    
+
+    
     alert("Creating Your Farm...");
     hideStartScreen();
-    Inventory(inventoryTools);
+    Inventory();
     createFarmLand();
     createSeedCoinTracker();
 }
-'assets/seeds/Seed.png'
